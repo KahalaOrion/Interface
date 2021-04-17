@@ -1,5 +1,5 @@
-// 
-
+// Oscillator!! using The Coding Train 17.6: Sound Synthesis - p5.js Sound Tutorial
+ 
 var osc;
 var button;
 var playing = false;
@@ -11,9 +11,6 @@ function setup(){
 
 	osc.setType('sine');
 	
-	
-
-
 	button = createButton ('play/pause');
 	button.mousePressed(toggle);
 
