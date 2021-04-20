@@ -1,4 +1,4 @@
-// Amplitude Analysis: https://www.youtube.com/watch?v=NCCHQwNAN6Y&list=PLRqwX-V7Uu6aFcVjlDAkkGIixw70s7jpW&index=5&ab_channel=TheCodingTrain
+// amplitude analysis: The Coding Train 17.4: Amplitude Analysis - p5.js Sound Tutorial
 
 
 
