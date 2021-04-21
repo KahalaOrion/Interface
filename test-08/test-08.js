@@ -8,12 +8,12 @@ var w;
 
 function setup(){
 	colorMode(HSB);
-	createCanvas(816, 1056);
-  	button = createButton("start")
-  	button.mousePressed(userStartAudio)
+	let cnv = createCanvas(816, 1056);
+  	cnv.mousePressed(userStartAudio)
 	mic = new p5.AudioIn();
 	mic.start();
 	fft = new p5.FFT(0.9,64);
+	// smooth()
 	fft.setInput(mic);
 	
   	
@@ -32,7 +32,7 @@ background(0);
 	stroke(vol*100,100,100)
 	noFill()
 
-	rect(vol*1000,vol*2000, 200, 200);
+	// rect(vol*1000,vol*2000, 200, 200);
 	
 
 
@@ -42,7 +42,7 @@ background(0);
 
 beginShape();
   for (i = 0; i < spectrum.length; i++) {
-    vertex(i, map(spectrum[i], 0, 255, height, 0));
+    vertex(i*20, map(spectrum[i], 0, 255, height, 0));
   }
   endShape();
 
