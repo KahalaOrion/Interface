@@ -28,11 +28,14 @@ function speechText(){
 	function gotSpeech(){
 		console.log(speechRec)
 		if (speechRec.resultValue){
+			
 			let vText = speechRec.resultString;
+
 			textAlign(CENTER);
 			textFont("helvetica")
 			textSize(30)
-			text(vText, 10,textSlider.value(),200,200)
+			text(vText.toUpperCase(), 10,textSlider.value(),200,200)
+			
 
 		}
 

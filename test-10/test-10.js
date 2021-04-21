@@ -54,10 +54,10 @@ function speechText(){
       let vText = speechRec.resultString;
       textAlign(CENTER);
       textFont("helvetica")
-      textSize(150)
+      textSize(120)
       fill(colors[n])
       noStroke()
-      text(vText, 50,textSlider.value(),765,990)
+      text(vText.toUpperCase(), 50,textSlider.value(),765,990)
 
     }
 
