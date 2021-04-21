@@ -71,7 +71,7 @@ function selectColor(){
     n = 0
   
   }
-  console.log(n)
+
 }
 
 function saveWork() {
