@@ -124,14 +124,14 @@ function draw(){
 
   let waveform = fft.waveform();
   
-  // beginShape();
-  // stroke(0)
-  // for (let i = 0; i < waveform.length; i++){
-  //   let x = map(i, 0, waveform.length, 0, width+100);
-  //   let y = map( waveform[i], -1,1, 0, height);
-  //   vertex(x,y)
-  // }
-  // endShape();
+  beginShape();
+  stroke(0)
+  for (let i = 0; i < waveform.length; i++){
+    let x = map(i, 0, waveform.length, 0, width+100);
+    let y = map( waveform[i], -1,1, 0, height);
+    vertex(x,y)
+  }
+  endShape();
 
 
 
