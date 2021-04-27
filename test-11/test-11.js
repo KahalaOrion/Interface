@@ -4,12 +4,12 @@
 var mic;
 var fft;
 var n = 0;
-var speakButton;
 
-var cButton;
-var saveButton;
-var strokeSlider;
+
+var sizeSlider;
 var textSlider;
+var waveButton;
+
 
 
 function setup(){
@@ -26,18 +26,26 @@ function setup(){
 	fft.setInput(mic);
 
 
-  strokeSlider = createSlider(0.5,30,0.5);
+  sizeSlider = createSlider(0.5,100,4);
 
-  cButton = createButton("color");
-  cButton.mousePressed(selectColor)  
+  var cButton = select("#cButton");
+  cButton.mousePressed(selectColor)
 
-  speakButton = createButton("text");
-  speakButton.mousePressed(speechText);
+   var speakButton = select("#speakButton");
+  speakButton.mousePressed(speechText); 
 
-  textSlider = createSlider(0,1056,300); 
-
-  saveButton = createButton("save");
+  var saveButton = select("#saveButton");
   saveButton.mousePressed(saveWork);
+
+  // var waveButton = select("waveButton")
+  // waveButton.mousePressed(showWave) 
+   
+
+ 
+
+  textSlider = createSlider(0,1056,400); 
+
+  
 
 
 
@@ -76,6 +84,12 @@ function selectColor(){
 
 }
 
+function showWave(){
+
+}
+
+
+
 function saveWork() {
   saveCanvas("soundvisualizer","png")
 }
@@ -98,10 +112,8 @@ function draw(){
   colors = [rainbow, redish, greenish, turquoise, whites];
   console.log(n)
   
-  stroke(colors[n]);
-  // fill(colors[n]);
-  strokeWeight(strokeSlider.value());
-  noFill();
+  noStroke()
+  fill(colors[n]);
 
 
     let spectrum = fft.analyze();
@@ -110,33 +122,33 @@ function draw(){
    for (let i = 0; i< spectrum.length; i++){
     let x = map(i, 0, spectrum.length, 0, width+80);
     let h = -height + map(spectrum[i], 0, 255, height, 0);
-    ellipse(x-75, -h, width / spectrum.length, -h )
+    rect(x-75, -h - 10, sizeSlider.value(), -h )
   }
 
     for (let i = 0; i< spectrum.length; i++){
     let x = map(i, 0, spectrum.length, 0, width+80);
     let h = -height + map(spectrum[i], 0, 255, height, 0);
-    ellipse(x-75, height, width / spectrum.length, h )
+    rect(x-75, height, sizeSlider.value(), h)
   }
 
-  
-  //  for (let i = 0; i< spectrum.length; i++){
-  //   let x = map(i, 0, spectrum.length, 0, width);
-  //   let h = -height + map(spectrum[i], 0, 255, height, 0);
-  //   rect(x, height, width/spectrum.length, h*x)
-  // }
+
 
   let waveform = fft.waveform();
   
-  beginShape();
-  // stroke(colors[4])
+  stroke(colors[n]);
+  strokeWeight(sizeSlider.value());
   noFill()
+
+  beginShape();
+ 
   for (let i = 0; i < waveform.length; i++){
     let x = map(i, 0, waveform.length, 0, width+100);
     let y = map( waveform[i], -1,1, 0, height);
     vertex(x,y)
   }
   endShape();
+
+  
 
 
 
