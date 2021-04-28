@@ -4,18 +4,19 @@
 var mic;
 var fft;
 var n = 0;
+var i = 0;
 
 
 var sizeSlider;
 var textSlider;
-var waveButton;
+
 
 
 
 function setup(){
 	colorMode(HSB);
 	let cnv = createCanvas(816, 1056);
-  cnv.position(width/2);
+  // cnv.position(width/2);
   cnv.mousePressed(userStartAudio)
 
 
@@ -34,11 +35,14 @@ function setup(){
   var speakButton = select("#speakButton");
   speakButton.mousePressed(speechText); 
 
+  var waveButton = select("#waveButton")
+  waveButton.mousePressed(showWave);
+
+
   var saveButton = select("#saveButton");
   saveButton.mousePressed(saveWork);
 
-  // var waveButton = select("waveButton")
-  // waveButton.mousePressed(showWave) 
+
    
   sizeSlider = createSlider(0.5,30,0.5);
 
@@ -82,16 +86,18 @@ function speechText(){
 }
 
 function selectColor(){
-   n = n + 1;
-   if (n > 4) {
-    n = 0
-  
+  n = n + 1;
+  if (n > 4) {
+  n = 0
   }
 
 }
 
 function showWave(){
-
+  i = i + 1;
+   if (i > 1) {
+    i = 0
+  }
 }
 
 
@@ -103,10 +109,7 @@ function saveWork() {
 
 
 function draw(){
- 
-	
-
-  var vol = mic.getLevel();
+ var vol = mic.getLevel();
   // console.log(vol)
 
   rainbow = color(vol*360,100,100)
@@ -117,10 +120,12 @@ function draw(){
 
   colors = [rainbow, redish, greenish, turquoise, whites];
   console.log(n)
+	if (i == 0){
+
+  
   
   noStroke()
   fill(colors[n]);
-
 
     let spectrum = fft.analyze();
 
@@ -136,7 +141,9 @@ function draw(){
     let h = -height + map(spectrum[i], 0, 255, height, 0);
     rect(x-75, height, sizeSlider.value(), h)
   }
+}
 
+else if (i ==1){
 
 
   let waveform = fft.waveform();
@@ -153,6 +160,7 @@ function draw(){
     vertex(x,y)
   }
   endShape();
+}
 
   
 
