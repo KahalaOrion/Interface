@@ -26,12 +26,12 @@ function setup(){
 	fft.setInput(mic);
 
 
-  sizeSlider = createSlider(0.5,100,4);
+ 
 
   var cButton = select("#cButton");
   cButton.mousePressed(selectColor)
 
-   var speakButton = select("#speakButton");
+  var speakButton = select("#speakButton");
   speakButton.mousePressed(speechText); 
 
   var saveButton = select("#saveButton");
@@ -40,8 +40,14 @@ function setup(){
   // var waveButton = select("waveButton")
   // waveButton.mousePressed(showWave) 
    
+  sizeSlider = createSlider(0.5,30,0.5);
 
- 
+//   var sizeSlider = document.getElementById("myRange");
+//   var output = document.getElementById("demo");
+//   output.innerHTML = slider.value; 
+//   slider.oninput = function() {
+//   output.innerHTML = this.value;
+// }
 
   textSlider = createSlider(0,1056,400); 
 

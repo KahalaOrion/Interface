@@ -20,28 +20,58 @@
 
 	button{
 	border: none;
+	background-color: black;
   	color: white;
   	padding: 15px 32px;
   	text-align: center;
-  	text-decoration: none;
   	display: inline-block;
  	font-size: 16px;
- 	margin: 4px 2px;
+ 	margin: 6px 4px;
  	cursor: pointer;
 
 	}
 
+	#cButton{
+	position: relative;
+	top: 52px;
+    left: 1250px;
+	}
+
+	#speakButton{
+	position: relative;
+	top: 52px;
+    left: 1250px;
+	}
+
+	#saveButton{
+	position: relative;
+	top: 52px;
+    left: 1250px;
+	}
 </style>
 
  <body>
  	
- 	<button id = 'cButton'> color </button>
+ 	<button id = 'cButton'> COLOR </button>
 
- 	<button id = 'speakButton'> text </button>
+ 	<button id = 'speakButton'> TEXT </button>
 
- 	<button id = 'saveButton'> save </button>
+ 	<button id = 'saveButton'> SAVE </button>
 
- 	<slider id = 'sizeSlider' ></slider>
+ <!-- 	<div class="slidecontainer">
+  	<input type="range" min="0.5" max="100" value="4" class="slider" id="myRange">
+	</div>
+
+	<script>
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = slider.value;
+
+	slider.oninput = function() {
+  	output.innerHTML = this.value;
+	}
+</script> -->
+
  	
 
 	
