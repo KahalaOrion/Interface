@@ -50,30 +50,30 @@ function draw(){
     ellipse(x*4, -h, width / spectrum.length, -h )
   }
 
-  //   for (let i = 0; i< spectrum.length; i++){
-  //   let x = map(i, 0, spectrum.length, 0, width-600);
-  //   let h = -height + map(spectrum[i], 0, 255, height, 0);
-  //   rect(x*10, height, width / spectrum.length, h )
-  // }
+    for (let i = 0; i< spectrum.length; i++){
+    let x = map(i, 0, spectrum.length, 0, width-600);
+    let h = -height + map(spectrum[i], 0, 255, height, 0);
+    rect(x*10, height, width / spectrum.length, h )
+  }
 
-  // strokeWeight(2)
-  //  for (let i = 0; i< spectrum.length; i++){
-  //   let x = map(i, 0, spectrum.length, 0, width);
-  //   let h = -height + map(spectrum[i], 0, 255, height, 0);
-  //   rect(x, height, width/spectrum.length, h*x)
-  // }
+  strokeWeight(2)
+   for (let i = 0; i< spectrum.length; i++){
+    let x = map(i, 0, spectrum.length, 0, width);
+    let h = -height + map(spectrum[i], 0, 255, height, 0);
+    rect(x, height, width/spectrum.length, h*x)
+  }
 
-  // let waveform = fft.waveform();
+  let waveform = fft.waveform();
   
-  // beginShape();
-  // stroke(0)
-  // strokeWeight(10)
-  // for (let i = 0; i < waveform.length; i++){
-  //   let x = map(i, 0, waveform.length, 0, width+100);
-  //   let y = map( waveform[i], -1,1, 0, height);
-  //   vertex(x,y)
-  // }
-  // endShape();
+  beginShape();
+  stroke(0)
+  strokeWeight(10)
+  for (let i = 0; i < waveform.length; i++){
+    let x = map(i, 0, waveform.length, 0, width+100);
+    let y = map( waveform[i], -1,1, 0, height);
+    vertex(x,y)
+  }
+  endShape();
 
 
 
