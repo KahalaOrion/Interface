@@ -6,9 +6,8 @@ var fft;
 var n = 0;
 var i = 0;
 
-
-var sizeSlider;
 var textSlider;
+var strokeSlider;
 
 
 
@@ -43,17 +42,18 @@ function setup(){
   saveButton.mousePressed(saveWork);
 
 
-   
-  sizeSlider = createSlider(0.5,30,0.5);
 
-//   var sizeSlider = document.getElementById("myRange");
-//   var output = document.getElementById("demo");
+  // sizeSlider = createSlider(0.5,30,0.5);
+  strokeSlider = select("#strokeSlider");
+
+  
 //   output.innerHTML = slider.value; 
 //   slider.oninput = function() {
 //   output.innerHTML = this.value;
 // }
 
-  textSlider = createSlider(0,1056,400); 
+  // textSlider = createSlider(0,1056,400); 
+  textSlider = select("#textSlider")
 
   
 
@@ -133,13 +133,13 @@ function draw(){
    for (let i = 0; i< spectrum.length; i++){
     let x = map(i, 0, spectrum.length, 0, width+80);
     let h = -height + map(spectrum[i], 0, 255, height, 0);
-    rect(x-75, -h - 10, sizeSlider.value(), -h )
+    rect(x-75, -h - 10, strokeSlider.value(), -h )
   }
 
     for (let i = 0; i< spectrum.length; i++){
     let x = map(i, 0, spectrum.length, 0, width+80);
     let h = -height + map(spectrum[i], 0, 255, height, 0);
-    rect(x-75, height, sizeSlider.value(), h)
+    rect(x-75, height, strokeSlider.value(), h)
   }
 }
 
@@ -149,7 +149,7 @@ else if (i ==1){
   let waveform = fft.waveform();
   
   stroke(colors[n]);
-  strokeWeight(sizeSlider.value());
+  strokeWeight(strokeSlider.value());
   noFill()
 
   beginShape();
